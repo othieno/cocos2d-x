@@ -10,9 +10,9 @@ msys2 = "MSYS Makefiles"
 windows = "MinGW Makefiles"
 nix and mac = "Unix Makefiles"
 
-For using and editor such as Visual Studio or xcode or sublime text there are different flags
+For using an editor such as Visual Studio or xcode or sublime text there are different flags
 
-To like all available flags for your system run
+To list all available flags for your system run
 
 cmake --help
 

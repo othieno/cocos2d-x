@@ -18,77 +18,6 @@ cocos2d-x is:
   * Easy to use
   * Community Supported
 
-Git user attention
------------------------
-
-1. clone the repo from GitHub.
-
-         $ git clone git@github.com:cocos2d/cocos2d-x.git
-
-2. After cloning the repo, please execute `download-deps.py` to download and install dependencies.
-
-         $ cd cocos2d-x
-         $ python download-deps.py
-
-3. After running `download-deps.py`.
-
-         $ cd cocos2d-x
-         $ git submodule update --init
-
-How to start a new game
------------------------
-
-1. Download the code from [cocos2d download site][4]
-2. Run `setup.py`
-3. Run the `cocos` script
-
-Example:
-
-    $ cd cocos2d-x
-    $ ./setup.py
-    $ source FILE_TO_SAVE_SYSTEM_VARIABLE
-    $ cocos new MyGame -p com.your_company.mygame -l cpp -d NEW_PROJECTS_DIR
-    $ cd NEW_PROJECTS_DIR/MyGame
-
-### Build and run a new project for Android ###
-
-    $ cocos run -p android -j 4
-
-### Build and run a new project for iOS ###
-
-    $ cocos run -p ios
-    
-### Build and run a new project for OSX ###
-
-    $ cocos run -p mac
-
-### Build and run a new project for Linux ###
-
-if you never run cocos2d-x on Linux, you need to install all dependencies by the
-script in **cocos2d/build/install-deps-linux.sh**
-
-    $ cd cocos2d-x/build
-    $ ./install-deps-linux.sh
-
-Then
-
-    $ cd NEW_PROJECTS_DIR/MyGame
-    $ cocos run -p linux
-    
-Run
-
-    $ bin/MyGame
-
-### Build and run new project for win32 ###
-
-    $ cocos run -p win32
-
-### Build and run new project for Windows 8.1 and Windows Phone 8.1 ###
-
-    $ cocos new MyGame -p com.bar.foo -l cpp -d projects
-
-With the Cocos2d-x v3.3, you can create Universal App (Two projects at the same time: Windows(Tablet) and Windows Phone 8.1 )
-See more info on How to install and Create games on Windows RT (Windows and Windows Phone 8.1) at http://msopentech.github.io/cocos2d-x/
 
 Main features
 -------------
@@ -122,6 +51,7 @@ Main features
    * Open Source Commercial Friendly(MIT): Compatible with open and closed source projects
    * OpenGL ES 2.0 (mobile) / OpenGL 2.1 (desktop) based
 
+
 Build Requirements
 ------------------
 
@@ -136,16 +66,82 @@ Build Requirements
 
 Runtime Requirements
 --------------------
-  * iOS 5.0+ for iPhone / iPad games
-  * Android 2.3+ for Android games
-  * Windows Phone 8 and 8.1 for Windows Phone games
-  * OS X v10.6+ for Mac games
-  * Windows 7+ for Win games
-  * Windows 8+ for WinRT games (Modern Apps)
+
+* iOS 5.0+ for iPhone / iPad games
+* Android 2.3+ for Android games
+* Windows Phone 8 and 8.1 for Windows Phone games
+* OS X v10.6+ for Mac games
+* Windows 7+ for Win games
+* Windows 8+ for WinRT games (Modern Apps)
+
+
+Cloning the cocos2d-x repo
+--------------------------
+
+The cocos2d-x codebase can be obtained from the [official download site][4] or cloned from this repository.
+When cloning the repo, the following steps must be performed:
+
+1. Start by cloning the repository and checking out the most recent version
+
+		$ git clone git@github.com:cocos2d/cocos2d-x.git
+		$ cd cocos2d-x
+		$ git checkout v3
+
+2. After cloning the repo, please execute the `download-deps.py` script to download and install dependencies
+
+		$ python download-deps.py
+
+3. When the dependencies have been installed, the submodules need to be updated
+
+		$ git submodule update --init
+
+
+Installing cocos2d-x
+--------------------
+
+Before being able to use cocos2d-x, its environment variables need to be added to your system.
+The `setup.py` script configures the aforementioned variables and adds them to your .bashrc file
+
+		$ python setup.py
+		$ source $HOME/.bashrc
+
+For Linux users, an extra set of dependencies must to be installed before cocos2d-x can be used.
+This installation is automated via the `install-deps-linux.sh` script
+
+		$ ./build/install-deps-linux.sh
+
+To make sure the cocos2d-x environment is correctly setup, run the `cocos` script
+
+		$ cocos --version
+
+
+Creating a new cocos2d-x game
+-----------------------------
+
+To create a new project named 'MyGame' in the directory 'MyGameDirectory', run the following
+
+		$ cocos new MyGame -p com.mycompany.mygame -l cpp -d MyGameDirectory
+
+The newly created project can now be built and executed by running
+
+		$ cd MyGameDirectory/MyGame
+		$ cocos run -p TARGET_PLATFORM
+
+where TARGET_PLATFORM is your target platform, e.g. ios, android, mac, linux or win32.
+
+For further information about the `new` and `run` commands, please refer to their respective help pages
+
+		$ cocos new --help
+		$ cocos run --help
+
+N.B. From cocos2d-x v3.3, you are able to build [universal Windows apps](http://dev.windows.com/en-us/develop/building-universal-windows-apps).
+For more info, check out http://msopentech.github.io/cocos2d-x/
 
 
 Running Tests
---------------------
+-------------
+
+Before running any tests, make sure cocos2d-x is correctly [installed](#installing-cocos2d-x).
 
 Select the test you want from Xcode Scheme chooser.
 
@@ -160,7 +156,6 @@ $ open cocos_tests.xcodeproj
 
 ```
 $ cd cocos2d-x/build
-$ ./install-deps-linux.sh
 $ cmake ..
 $ make
 ```
@@ -196,7 +191,7 @@ Contributing to the Project
 
 Did you find a bug? Do you have feature request? Do you want to merge a feature?
 
-  * [contributing to cocos2d-x][8]
+   * [contributing to cocos2d-x][8]
 
 
 Contact us
